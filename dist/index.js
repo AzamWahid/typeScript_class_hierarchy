@@ -1,41 +1,50 @@
 "use strict";
 class Vehicle {
-    constructor(make, model, year) {
-        this.make = make;
-        this.model = model;
-        this.year = year;
-        this.rented = false;
+    constructor(Make, Model, Year) {
+        this._Make = Make;
+        this._Model = Model;
+        this._Year = Year;
+        this._Rented = false;
     }
-    getMake() {
-        return this.make;
+    get Make() {
+        return this._Make;
     }
-    getModel() {
-        return this.model;
+    set Make(make) {
+        this._Make = make;
     }
-    getYear() {
-        return this.year;
+    get Model() {
+        return this._Model;
     }
-    isRented() {
-        return this.rented;
+    set Model(model) {
+        this._Model = model;
     }
-    setRented(rented) {
-        this.rented = rented;
+    get Year() {
+        return this._Year;
+    }
+    set Year(year) {
+        this._Year = year;
+    }
+    get Rented() {
+        return this._Rented;
+    }
+    set Rented(rented) {
+        this._Rented = rented;
     }
     rent() {
-        if (this.rented) {
+        if (this._Rented) {
             return "This vehicle is already rented.";
         }
         else {
-            this.setRented(true);
+            this._Rented = true;
             return "You have successfully rented this vehicle.";
         }
     }
     returnVehicle() {
-        if (!this.rented) {
+        if (!this._Rented) {
             return "This vehicle has not been rented yet.";
         }
         else {
-            this.setRented(false);
+            this._Rented = false;
             return "You have successfully returned this vehicle.";
         }
     }
@@ -71,27 +80,27 @@ class Motorcycle extends Vehicle {
 console.log('Car Information');
 const car = new Car("Toyota", "Corolla", 2022, 5);
 console.log(car.rent());
-console.log('Car Rented or not : ', car.isRented() === true ? 'Rented' : 'Available');
+console.log('Car Rented or not : ', car.Rented === true ? 'Rented' : 'Available');
 console.log(car.returnVehicle());
-console.log('Car Rented or not : ', car.isRented() === true ? 'Rented' : 'Available');
-console.log('Car Model', car.getYear());
+console.log('Car Rented or not : ', car.Rented === true ? 'Rented' : 'Available');
+console.log('Car Model', car.Year);
 console.log('Car Rent Rate Per Day', car.rentalRate());
 // Truck LOG
 console.log('Truck Information');
 const truck = new Truck("ISUZU", "NKR (4x2)", 2021, 5000);
 console.log(truck.rent());
-console.log('Truck Rented or not : ', truck.isRented() === true ? 'Rented' : 'Available');
+console.log('Truck Rented or not : ', truck.Rented === true ? 'Rented' : 'Available');
 console.log(truck.returnVehicle());
-console.log('Truck Rented or not : ', truck.isRented() === true ? 'Rented' : 'Available');
-console.log('Truck Model', truck.getYear());
+console.log('Truck Rented or not : ', truck.Rented === true ? 'Rented' : 'Available');
+console.log('Truck Model', truck.Year);
 console.log('Truck Rent Rate Per Day', truck.rentalRate());
 // MotorCycle LOG
 console.log('MotorCycle Information');
 const motorcycle = new Motorcycle("Honda", "CB150F", 2017, 150);
 console.log(motorcycle.rent());
-console.log('MotorCycle Rented or not : ', motorcycle.isRented() === true ? 'Rented' : 'Available');
+console.log('MotorCycle Rented or not : ', motorcycle.Rented === true ? 'Rented' : 'Available');
 console.log(motorcycle.returnVehicle());
-console.log('MotorCycle Rented or not : ', motorcycle.isRented() === true ? 'Rented' : 'Available');
-console.log('MotorCycle Model', motorcycle.getYear());
+console.log('MotorCycle Rented or not : ', motorcycle.Rented === true ? 'Rented' : 'Available');
+console.log('MotorCycle Model', motorcycle.Year);
 console.log('MotorCycle Rent Rate Per Day', motorcycle.rentalRate());
 //# sourceMappingURL=index.js.map
